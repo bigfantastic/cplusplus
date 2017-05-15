@@ -1,9 +1,11 @@
 #include"Vector.h"
+#include"stringclass.h"
 template<class Iterator>
 void display_Vector(Iterator first,Iterator last);
 
 int main()
 {
+  /*
   //constructor,Insert,Erase
   Vector<int>V;
   int item;
@@ -35,12 +37,26 @@ int main()
     V1[i]++;
   cout<<"after Reserve(20),Resize(20,5) and adding(1):"<<endl;
   display_Vector(V1.Begin(),V1.End());
+  */
+  typedef Pair<String,int>tyPair;
+  tyPair p;
+  Vector<tyPair>v;
+  v.Push_back(Make_pair<String,int>("Math",100));
+  v.Push_back(Make_pair<String,int>("English",99));
+  v.Push_back(Make_pair<String,int>("biology",98));
+  Vector<tyPair>::iterator iter;
+  iter=v.Begin();
+  for(int i=1;iter!=v.End();++iter)
+  {
+    cout<<"The "<<i<<"th String:"<<iter->first<<"\n"<<"The "<<i<<"th integer:"<<iter->second<<endl;
+    ++i;
+  }
   return 0;
 }
-template<class Iterator>
+/*template<class Iterator>
 void display_Vector(Iterator first,Iterator last)
 {
   for(;first!=last;++first)
     cout<<*first<<'\t';
   cout<<endl;
-}
+}*/

@@ -104,4 +104,33 @@ typename Vector<T>::iterator Vector<T>::Erase(iterator itr)                     
   return itr;
 }
 
+
+
+//Pair
+template<class T1,class T2>
+class Pair
+{
+  public:
+    T1 first;
+    T2 second;
+    Pair(const T1& f= T1(), const T2& s = T2()):first(f),second(s){}
+    Pair(const Pair& pa): first(pa.first),second(pa.second){}
+    bool operator==(const Pair& pa);                                  //两个Pair对象的first和second依次相等
+    bool operator<(const Pair& pa);                                   //按字典顺序比较Pair的两个对象
+};
+
+template<class T1, class T2>
+bool Pair<T1,T2>:: operator==(const Pair& pa)
+{return first==pa.first&&second==pa.second;}
+
+template<class T1, class T2>
+bool Pair<T1,T2>:: operator<(const Pair& pa)
+{return first<pa.first||(!(first<pa.first)&&second<pa.second);}
+
+template<class T1, class T2>                                          //以f和s创建一个新的Pair对象
+Pair<T1,T2>Make_pair(const T1& f , const T2& s)
+{
+  return Pair<T1,T2>(f,s);
+}
+
 #endif
