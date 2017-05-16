@@ -149,15 +149,15 @@ typename List<T>::iterator List<T>::Insert(iterator itr,const T& item)
 }
 
 template<class T>
-const List<T>& List<T>::operator +(List<T>& l2)
+const List<T>& List<T>::operator +(List<T>& l1)
 {
   iterator temp = --End();
-  iterator temp1 = l2.Begin();
+  iterator temp1 = l1.Begin();
   temp.current->next = temp1.current;
   temp1.current->prev = temp.current;
   delete tail;
-  delete l2.head;
-  tail=l2.End().current;
+  delete l1.head;
+  tail=l1.End().current;
   return *this;
 }
 
